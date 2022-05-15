@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>邮件监视</title>
+      <link href="/posts/46616.html"/>
+      <url>/posts/46616.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题链接：https-www-dotcpp-com-oj-problem2085-html"><a href="#问题链接：https-www-dotcpp-com-oj-problem2085-html" class="headerlink" title="问题链接：https://www.dotcpp.com/oj/problem2085.html"></a>问题链接：<a href="https://www.dotcpp.com/oj/problem2085.html">https://www.dotcpp.com/oj/problem2085.html</a></h3><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>作为一名网络警察，你的任务是监视电子邮件，看其中是否有一些敏感的关键词。不过，有些狡猾的犯罪嫌疑人会改变某些单词的字母顺序，以逃避检查。请编写一个程序，发现这种调整过顺序的关键词。程序的输入有两行，第一行是关键词列表，第二行是待检查的句子。程序的输出为在该句子中所找到的经过顺序调整的关键词。（单词全部为小写，单词之间以一个空格分隔，每一行的单词个数不限）</p><h2 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h2><h3 id="guns-mines-missiles"><a href="#guns-mines-missiles" class="headerlink" title="guns mines missiles"></a>guns mines missiles</h3><h3 id="aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis"><a href="#aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis" class="headerlink" title="aameric ssell snug dan iimsssle ot sit neeemis"></a>aameric ssell snug dan iimsssle ot sit neeemis</h3><h2 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h2><h3 id="guns-missiles"><a href="#guns-missiles" class="headerlink" title="guns missiles"></a>guns missiles</h3><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>废物的我看到这题想着好麻烦，想着用for循环把每个字符串从输入提取出来然后再一一对比，感觉会死。但是我发现了大佬的写法，越发觉得stl真无敌，顺便学会了istringstream的用法。</p><h4 id="下面是istringstream用法的举例"><a href="#下面是istringstream用法的举例" class="headerlink" title="下面是istringstream用法的举例"></a>下面是istringstream用法的举例</h4><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits&#x2F;stdc++.h&gt; using namespace std;   int main()    &#123;      string str &#x3D; &quot;aa bb cc dd ee&quot;;      istringstream is(str);&#x2F;&#x2F;创建istringstream对象is     &#x2F;&#x2F;并同时使is和字符串str绑定     string s;       while (is &gt;&gt; s)&#x2F;&#x2F;将从str中读取到的字符串is写入到字符串s    &#123;          cout &lt;&lt; s &lt;&lt; endl;      &#125;        return 0; &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-none"><code class="language-none">输出如下:aamericssellsnugdaniimsssleotsitneeemis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>好，接下来说思路，那有了istringstream这样的利器就好写了,拿两个字符串进行输入，然后再用vector存放提取出来的字符串，同时把每个字符串sort一下，这样比较就只要简单的==就行了。</p><h3 id="下面是源代码："><a href="#下面是源代码：" class="headerlink" title="下面是源代码："></a>下面是源代码：</h3><pre class="line-numbers language-none"><code class="language-none">#include&lt;iostream&gt;#include&lt;vector&gt;#include&lt;sstream&gt;#include&lt;algorithm&gt;using namespace std;int main() &#123;    string str1,str2;    getline(cin, str1);    getline(cin, str2);    vector&lt;string&gt;s1,s2,s3;    istringstream Str1(str1),Str2(str2);    string temp;    while(Str1&gt;&gt;temp) &#123;        s1.push_back(temp);        s2.push_back(temp);    &#125;    while (Str2&gt;&gt;temp) &#123;        s3.push_back(temp);    &#125;    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;        sort(s3[i].begin(),s3[i].end());    &#125;    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;        for (int j &#x3D; 0; j&lt;s2.size(); j++) &#123;            sort(s2[j].begin(),s2[j].end());if (s3[i] &#x3D;&#x3D; s2[j]) &#123;                cout &lt;&lt; s1[j] &lt;&lt;&quot; &quot;;                break;             &#125;        &#125;    &#125;    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 蓝桥杯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>免费馅饼（dp入门）</title>
       <link href="/posts/20518.html"/>
       <url>/posts/20518.html</url>

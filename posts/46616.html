@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="走迷宫（bfs), 谢邀，人在机房，已成秃头">
-    <meta name="description" content="问题描述给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。
-最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。
-">
+    <meta name="keywords" content="邮件监视, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="问题链接：https://www.dotcpp.com/oj/problem2085.html问题描述作为一名网络警察，你的任务是监视电子邮件，看其中是否有一些敏感的关键词。不过，有些狡猾的犯罪嫌疑人会改变某些单词的字母顺序，以逃避检查。请">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +19,7 @@
 
     
 
-    <title>走迷宫（bfs) | 谢邀，人在机房，已成秃头</title>
+    <title>邮件监视 | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/awesome/css/all.min.css">
@@ -311,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">走迷宫（bfs)</h1>
+                    <h1 class="description center-align post-title">邮件监视</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/bfs/">
-                                <span class="chip bg-color">bfs</span>
+                            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                                <span class="chip bg-color">蓝桥杯</span>
                             </a>
                         
                     </div>
@@ -448,21 +446,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    520
+                    586
                 </div>
                 
 
@@ -492,73 +490,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。</p>
-<p>最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。</p>
-<p>请问，该人从左上角移动至右下角 (n,m) 处，至少需要移动多少次。</p>
-<p>数据保证 (1,1) 处和 (n,m) 处的数字为 0，且一定至少存在一条通路。</p>
-<p>输入格式<br>第一行包含两个整数 n 和 m。</p>
-<p>接下来 n 行，每行包含 m 个整数（0 或 1），表示完整的二维数组迷宫。</p>
-<p>输出格式<br>输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
-<p>数据范围<br>1≤n,m≤100</p>
-<h1 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h1><h1 id="5-5"><a href="#5-5" class="headerlink" title="5 5"></a>5 5</h1><h1 id="0-1-0-0-0"><a href="#0-1-0-0-0" class="headerlink" title="0 1 0 0 0"></a>0 1 0 0 0</h1><h1 id="0-1-0-1-0"><a href="#0-1-0-1-0" class="headerlink" title="0 1 0 1 0"></a>0 1 0 1 0</h1><h1 id="0-0-0-0-0"><a href="#0-0-0-0-0" class="headerlink" title="0 0 0 0 0"></a>0 0 0 0 0</h1><h1 id="0-1-1-1-0"><a href="#0-1-1-1-0" class="headerlink" title="0 1 1 1 0"></a>0 1 1 1 0</h1><h1 id="0-0-0-1-0"><a href="#0-0-0-1-0" class="headerlink" title="0 0 0 1 0"></a>0 0 0 1 0</h1><h1 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h1><h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;
+                <h3 id="问题链接：https-www-dotcpp-com-oj-problem2085-html"><a href="#问题链接：https-www-dotcpp-com-oj-problem2085-html" class="headerlink" title="问题链接：https://www.dotcpp.com/oj/problem2085.html"></a>问题链接：<a target="_blank" rel="noopener" href="https://www.dotcpp.com/oj/problem2085.html">https://www.dotcpp.com/oj/problem2085.html</a></h3><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>作为一名网络警察，你的任务是监视电子邮件，看其中是否有一些敏感的关键词。不过，有些狡猾的犯罪嫌疑人会改变某些单词的字母顺序，以逃避检查。请编写一个程序，发现这种调整过顺序的关键词。程序的输入有两行，第一行是关键词列表，第二行是待检查的句子。程序的输出为在该句子中所找到的经过顺序调整的关键词。（单词全部为小写，单词之间以一个空格分隔，每一行的单词个数不限）</p>
+<h2 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h2><h3 id="guns-mines-missiles"><a href="#guns-mines-missiles" class="headerlink" title="guns mines missiles"></a>guns mines missiles</h3><h3 id="aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis"><a href="#aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis" class="headerlink" title="aameric ssell snug dan iimsssle ot sit neeemis"></a>aameric ssell snug dan iimsssle ot sit neeemis</h3><h2 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h2><h3 id="guns-missiles"><a href="#guns-missiles" class="headerlink" title="guns missiles"></a>guns missiles</h3><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>废物的我看到这题想着好麻烦，想着用for循环把每个字符串从输入提取出来然后再一一对比，感觉会死。但是我发现了大佬的写法，越发觉得stl真无敌，顺便学会了istringstream的用法。</p>
+<h4 id="下面是istringstream用法的举例"><a href="#下面是istringstream用法的举例" class="headerlink" title="下面是istringstream用法的举例"></a>下面是istringstream用法的举例</h4><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits&#x2F;stdc++.h&gt; 
+using namespace std;  
+ int main()   
+ &#123;  
+    string str &#x3D; &quot;aa bb cc dd ee&quot;;  
+    istringstream is(str);&#x2F;&#x2F;创建istringstream对象is
+     &#x2F;&#x2F;并同时使is和字符串str绑定 
+    string s;  
+     while (is &gt;&gt; s)&#x2F;&#x2F;将从str中读取到的字符串is写入到字符串s
+    &#123;  
+        cout &lt;&lt; s &lt;&lt; endl;  
+    &#125;  
+      return 0; 
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">输出如下:
+
+aameric
+ssell
+snug
+dan
+iimsssle
+ot
+sit
+neeemis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>好，接下来说思路，那有了istringstream这样的利器就好写了,拿两个字符串进行输入，然后再用vector存放提取出来的字符串，同时把每个字符串sort一下，这样比较就只要简单的==就行了。</p>
+<h3 id="下面是源代码："><a href="#下面是源代码：" class="headerlink" title="下面是源代码："></a>下面是源代码：</h3><pre class="line-numbers language-none"><code class="language-none">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;sstream&gt;
+#include&lt;algorithm&gt;
 using namespace std;
-int n,m;
-int dx[]&#x3D;&#123;0,0,-1,1&#125;;
-int dy[]&#x3D;&#123;-1,1,0,0&#125;;
-int mp[110][110];
-int vis[110][110];
-struct node
-&#123;
-    int x,y,step;
-&#125;;
-bool cheak(int x,int y)
-&#123;
-	if(x&gt;&#x3D;1&amp;&amp;x&lt;&#x3D;n&amp;&amp;y&lt;&#x3D;m&amp;&amp;y&gt;&#x3D;1&amp;&amp;!vis[x][y]&amp;&amp;mp[x][y]!&#x3D;1)return true;
-	else return false;
-&#125;
-void bfs()
-&#123;
-    queue&lt;node&gt;q;
-    node now,next;
-    now.x&#x3D;now.y&#x3D;1;now.step&#x3D;0;
-    vis[1][1]&#x3D;1;
-    q.push(now); 
-	while(!q.empty())
-	&#123;
-	    now&#x3D;q.front();
-		q.pop();
-		if(now.x&#x3D;&#x3D;n&amp;&amp;now.y&#x3D;&#x3D;m)
-		&#123;
-		     cout&lt;&lt;now.step&lt;&lt;endl;
-			 return;	
-	    &#125;
-		for(int i&#x3D;0;i&lt;4;i++)
-		&#123;	
-	    	next.x&#x3D;now.x+dx[i];
-			next.y&#x3D;now.y+dy[i];
-			next.step&#x3D;now.step+1;
-			if(cheak(next.x,next.y))
-			&#123;
-				vis[next.x][next.y]&#x3D;1;
-				q.push(next);
-			&#125;
-		&#125;
-	&#125; 
-&#125;
-int main()
-&#123;
-    cin &gt;&gt; n &gt;&gt; m;
-    for (int i &#x3D; 1; i &lt;&#x3D; n; i ++ )
-      &#123;
-          for (int j &#x3D; 1; j &lt;&#x3D; m; j ++ )
-          &#123;
-              cin &gt;&gt; mp[i][j];
-          &#125;
-      &#125;
-      bfs();
-      return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="思路后续更新"><a href="#思路后续更新" class="headerlink" title="思路后续更新"></a>思路后续更新</h1>
+int main() &#123;
+    string str1,str2;
+    getline(cin, str1);
+    getline(cin, str2);
+    vector&lt;string&gt;s1,s2,s3;
+    istringstream Str1(str1),Str2(str2);
+    string temp;
+    while(Str1&gt;&gt;temp) &#123;
+        s1.push_back(temp);
+        s2.push_back(temp);
+    &#125;
+    while (Str2&gt;&gt;temp) &#123;
+        s3.push_back(temp);
+    &#125;
+    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;
+        sort(s3[i].begin(),s3[i].end());
+    &#125;
+    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;
+        for (int j &#x3D; 0; j&lt;s2.size(); j++) &#123;
+            sort(s2[j].begin(),s2[j].end());
+			if (s3[i] &#x3D;&#x3D; s2[j]) &#123;
+                cout &lt;&lt; s1[j] &lt;&lt;&quot; &quot;;
+                break; 
+            &#125;
+        &#125;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -584,7 +575,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/29413.html">https://zzldy4.github.io/posts/29413.html</a>
+                    <a href="https://zzldy4.github.io/posts/46616.html">https://zzldy4.github.io/posts/46616.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -622,8 +613,8 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/bfs/">
-                                    <span class="chip bg-color">bfs</span>
+                                <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                                    <span class="chip bg-color">蓝桥杯</span>
                                 </a>
                             
                         </div>
@@ -1124,9 +1115,56 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/posts/46616.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="邮件监视">
+                        
+                        <span class="card-title">邮件监视</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            菜狗
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                        <span class="chip bg-color">蓝桥杯</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/posts/20518.html">
                     <div class="card-image">
@@ -1144,9 +1182,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1160,51 +1198,6 @@ int main()
                     
                     <a href="/tags/dp/">
                         <span class="chip bg-color">dp</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/17402.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="贪吃蛇">
-                        
-                        <span class="card-title">贪吃蛇</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            菜狗
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
                     </a>
                     
                 </div>
