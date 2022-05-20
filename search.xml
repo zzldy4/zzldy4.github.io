@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>最长有序子序列（递增）</title>
+      <link href="/posts/9113.html"/>
+      <url>/posts/9113.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出"><a href="#首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出" class="headerlink" title="首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出"></a>首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出</h3><h3 id="这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。"><a href="#这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。" class="headerlink" title="这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。"></a>这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。</h3><p>比如这个数组：1 4 7 2 5 8 3 6 9</p><h4 id="那dp数组就是：1-2-3-2-3-4-3-4-5"><a href="#那dp数组就是：1-2-3-2-3-4-3-4-5" class="headerlink" title="那dp数组就是：1 2 3 2 3 4 3 4 5"></a>那dp数组就是：1 2 3 2 3 4 3 4 5</h4><h4 id="怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度"><a href="#怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度" class="headerlink" title="怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度"></a>怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度</h4><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int num[1000];int dp[1000];int main()&#123;int n;cin&gt;&gt;n;for(int i&#x3D;0;i&lt;n;i++)&#123;cin&gt;&gt;num[i];&#125; dp[0]&#x3D;1;for(int i&#x3D;1;i&lt;n;i++)&#123;for(int j&#x3D;0;j&lt;i;j++)&#123;if(num[i]&gt;num[j])&#123;dp[i]&#x3D;max(dp[i],dp[j]);&#125;else&#123;continue;&#125;&#125; dp[i]+&#x3D;1;&#125;for(int i&#x3D;0;i&lt;n;i++)&#123;cout&lt;&lt;dp[i]&lt;&lt;&quot; &quot;;&#125;&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> dp </tag>
+            
+            <tag> c++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>邮件监视</title>
       <link href="/posts/46616.html"/>
       <url>/posts/46616.html</url>
@@ -34,6 +55,8 @@
         <tags>
             
             <tag> dp </tag>
+            
+            <tag> c++ </tag>
             
         </tags>
       

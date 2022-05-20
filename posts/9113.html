@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="贪吃蛇, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="贪吃蛇c++注意需要安装easy库函数这是我第一次尝试做，可能比较拉（比如暂停功能有bug之[doge]，🐍有点简陋。。。）下面是源代码#include&amp;lt;easyx.h&amp;gt;
-#include &amp;lt;conio.h&amp;gt;&amp;#x">
+    <meta name="keywords" content="最长有序子序列（递增）, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@
 
     
 
-    <title>贪吃蛇 | 谢邀，人在机房，已成秃头</title>
+    <title>最长有序子序列（递增） | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/awesome/css/all.min.css">
@@ -310,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">贪吃蛇</h1>
+                    <h1 class="description center-align post-title">最长有序子序列（递增）</h1>
                 </div>
             </div>
         </div>
@@ -431,6 +430,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/dp/">
+                                <span class="chip bg-color">dp</span>
+                            </a>
+                        
                             <a href="/tags/c/">
                                 <span class="chip bg-color">c++</span>
                             </a>
@@ -447,28 +450,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-05-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    409
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    1 分
                 </div>
                 
 
@@ -491,256 +494,39 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="贪吃蛇c"><a href="#贪吃蛇c" class="headerlink" title="贪吃蛇c++"></a>贪吃蛇c++</h1><h1 id="注意需要安装easy库函数"><a href="#注意需要安装easy库函数" class="headerlink" title="注意需要安装easy库函数"></a><strong>注意需要安装easy库函数</strong></h1><h2 id="这是我第一次尝试做，可能比较拉（比如暂停功能有bug之-doge-，🐍有点简陋。。。）"><a href="#这是我第一次尝试做，可能比较拉（比如暂停功能有bug之-doge-，🐍有点简陋。。。）" class="headerlink" title="这是我第一次尝试做，可能比较拉（比如暂停功能有bug之[doge]，🐍有点简陋。。。）"></a><del>这是我第一次尝试做，可能比较拉（比如暂停功能有bug之[doge]，🐍有点简陋。。。）</del></h2><h3 id="下面是源代码"><a href="#下面是源代码" class="headerlink" title="下面是源代码"></a>下面是源代码</h3><pre class="line-numbers language-#include<stdio.h>" data-language="#include<stdio.h>"><code class="language-#include<stdio.h>">#include&lt;easyx.h&gt;
-#include &lt;conio.h&gt;&#x2F;&#x2F;按键操作
-#include&lt;stdlib.h&gt;
-#include&lt;graphics.h&gt;&#x2F;&#x2F;1.同下
-#include&lt;mmsyscom.h&gt;&#x2F;&#x2F;2.同下
-#pragma comment(lib,&quot;winmm.lib&quot;)&#x2F;&#x2F;3.多媒体
-#define Coords 500
-#define length 700
-#define high   500
-int cnt&#x3D;0;
-char num[20];
-bool isplay;
-enum DIR&#x2F;&#x2F;枚举，但不知道怎么用的
-&#123;
-	 up,
-   down,
-   left,
-   right,
-&#125;;
-struct snake&#x2F;&#x2F;蛇的结构
-&#123;
-  int size;&#x2F;&#x2F;蛇的字节
-  int dir;&#x2F;&#x2F;蛇的方向
-  int speed;&#x2F;&#x2F;移动速度
-  POINT coor[Coords];&#x2F;&#x2F;坐标
-&#125;snake;
-struct food
-&#123;
-	int x;
-	int y;
-	int r;
-	bool flag;&#x2F;&#x2F;判定是否被吃
-	DWORD color;
-&#125;food;
-void loadrescource()
-&#123;
-	IMAGE background;&#x2F;&#x2F;定义一个图片名.
-	loadimage(&amp;background, &quot;.&#x2F;picture1&#x2F;true.jfif&quot;,700,500);&#x2F;&#x2F;从图片文件获取图像
-	putimage(0, 0, &amp;background);&#x2F;&#x2F;绘制图像到屏幕，图片左上角坐标为(0,0)
-&#125;
-void gameinit()&#x2F;&#x2F;初始化
-&#123;
-	isplay &#x3D; true;
-	mciSendString(&quot;open .&#x2F;music&#x2F;7895.mp3 alias bgm&quot;, 0, 0, 0);
-	mciSendString(&quot;play bgm repeat&quot;, 0, 0, 0);
-	&#x2F;&#x2F;init初始化 graph 图形窗口
-	initgraph(length,high);
-	srand(GetTickCount());&#x2F;&#x2F;随机数种子
-	&#x2F;&#x2F;设时间为随机数,获取系统开机到现在的毫秒数
-	&#x2F;&#x2F;初始化蛇，一开始3节
-	snake.size &#x3D; 3; 
-    snake.speed &#x3D;5;
-	snake.dir&#x3D;right;&#x2F;&#x2F;方向
-	for (int i &#x3D; 0; i &lt;snake.size; i++) &#123;
-		snake.coor[i].x &#x3D; 70-15*i;
-	    snake.coor[i].y &#x3D; 10;
-	&#125;
-	&#x2F;&#x2F;初始化食物
-	food.x &#x3D; rand() % (length-100)+25;&#x2F;&#x2F;随机产生一个整数的函数，需要随机数种子
-	food.y &#x3D; rand() % (high - 100)+25;
-	food.color &#x3D; RGB(rand()%256,rand()%256,rand()%256);
-	food.r &#x3D; rand() % 10 +10;
-	food.flag &#x3D; true;
-&#125;
-void gamedraw()&#x2F;&#x2F;绘制蛇
-&#123;
-	&#x2F;&#x2F;sprintf(Time,&quot;%d&quot;,pp);
-	BeginBatchDraw();&#x2F;&#x2F;双缓存
-	&#x2F;&#x2F;setbkcolor(RGB(28, 115, 119));
-	cleardevice();&#x2F;&#x2F;清空绘图设备
-	loadrescource();
-	outtextxy(610, 10, &quot;分数:&quot;);
-	outtextxy(650, 10, num);
-	outtextxy(540, 10, &quot;音乐:&quot;);
-	if (isplay)
+                <h3 id="首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出"><a href="#首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出" class="headerlink" title="首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出"></a>首先我门要知道什么是子序列，子序列就是从原来的数列中选出一部分顺序不变的数列，那理解了什么是子序列我们接下来就是解决如何找出</h3><h3 id="这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。"><a href="#这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。" class="headerlink" title="这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。"></a>这道题是dp中的基础题，那我们应该怎么进行思考呢，我们应该知道dp其实就是把问题分解，（我个人觉得就是从结果出发然后倒推）就比如这个，假设我们得到一个子序列，那这个子序列就一定会有一个结尾，而我们要做的就是枚举数组中的每个数字作为子序列的结尾，然后得出该子序列的长度。</h3><p>比如这个数组：1 4 7 2 5 8 3 6 9</p>
+<h4 id="那dp数组就是：1-2-3-2-3-4-3-4-5"><a href="#那dp数组就是：1-2-3-2-3-4-3-4-5" class="headerlink" title="那dp数组就是：1 2 3 2 3 4 3 4 5"></a>那dp数组就是：1 2 3 2 3 4 3 4 5</h4><h4 id="怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度"><a href="#怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度" class="headerlink" title="怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度"></a>怎么来的呢，首先我们以1作为结尾，那长度就是1，然后是4作为结尾，那它的长度就是自身加上以1结尾的子序列的长度。一般情况就是找出前面用比自己小的数字作为结尾的子序列的最大长度</h4><h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int num[1000];
+int dp[1000];
+int main()&#123;
+	int n;
+	cin&gt;&gt;n;
+	for(int i&#x3D;0;i&lt;n;i++)
 	&#123;
-         outtextxy(585, 10, &quot;开&quot;);
-	&#125;
-	else
+		cin&gt;&gt;num[i];
+	&#125; 
+	dp[0]&#x3D;1;
+	for(int i&#x3D;1;i&lt;n;i++)
 	&#123;
-		outtextxy(585, 10, &quot;关&quot;);
-	&#125;
-	setfillcolor(BLUE);&#x2F;&#x2F;设置蛇身颜色为蓝色
-	for (int i &#x3D; 1; i &lt;snake.size; i++) &#123;
-		solidcircle(snake.coor[i].x, snake.coor[i].y, 6);&#x2F;&#x2F;x轴，y轴，半径
-	&#125;
-	setfillcolor(RED);&#x2F;&#x2F;设置蛇头颜色为红色
-	solidcircle(snake.coor[0].x, snake.coor[0].y, 6);
-	if (food.flag&#x3D;&#x3D;true)
-	&#123;
-		solidcircle(food.x, food.y, food.r);
-	&#125;
-	EndBatchDraw();
-&#125;
-void snakemove() &#123;&#x2F;&#x2F;移动蛇
-	for (int i &#x3D; snake.size-1; i &gt;0; i--)&#x2F;&#x2F;后面到前面依次向前走
-	&#123;
-		snake.coor[i]&#x3D;snake.coor[i - 1];
-	 &#125;
-		switch (snake.dir)
+		for(int j&#x3D;0;j&lt;i;j++)
 		&#123;
-		case up:&#x2F;&#x2F;进行方向改变
-			snake.coor[0].y-&#x3D;snake.speed;
-			if (snake.coor[0].y +6&lt;&#x3D; 0) 
+			if(num[i]&gt;num[j])
 			&#123;
-				snake.coor[0].y &#x3D; high;
+				dp[i]&#x3D;max(dp[i],dp[j]);
 			&#125;
-			break;
-		case down:&#x2F;&#x2F;同上
-			snake.coor[0].y+&#x3D;snake.speed;
-			if (snake.coor[0].y + 6 &gt;&#x3D; high)
+			else
 			&#123;
-				snake.coor[0].y &#x3D; 0;
+				continue;
 			&#125;
-			break;
-		case left:&#x2F;&#x2F;同上
-			snake.coor[0].x-&#x3D;snake.speed;
-			if (snake.coor[0].x + 6 &lt;&#x3D; 0)
-			&#123;
-				snake.coor[0].x &#x3D; length;
-			&#125;
-			break;
-		case right:&#x2F;&#x2F;同上
-			snake.coor[0].x+&#x3D;snake.speed;
-			if (snake.coor[0].x+ 6 &gt;&#x3D;length)
-			&#123;
-				snake.coor[0].x &#x3D; 0;
-			&#125;
-			break;
-		&#125;	
-&#125;
-void keycontrol()
-&#123;&#x2F;&#x2F;通过按键进行控制
-	if (_kbhit())&#x2F;&#x2F;判断有没有按键，如果有就为真
+		&#125; 
+		dp[i]+&#x3D;1;
+	&#125;
+	for(int i&#x3D;0;i&lt;n;i++)
 	&#123;
-	    switch (_getch())
-		  &#123;
-			&#x2F;&#x2F;72 80 75 77 上下左右键值 
-			case &#39;w&#39;:
-			case &#39;W&#39;:
-			case 72:
-				if (snake.dir !&#x3D; down) 
-				&#123;
-                     snake.dir &#x3D; up;
-				&#125;
-			&#x2F;&#x2F;改变方向
-				break;
-			case &#39;s&#39;:
-			case &#39;S&#39;:
-			case 80:
-				if (snake.dir !&#x3D; up)
-				&#123;
-			   snake.dir &#x3D; down;
-				&#125;
-				break;
-			case &#39;a&#39;:
-			case &#39;A&#39;:
-			case 75:
-			if (snake.dir !&#x3D; right)
-			&#123;
-				snake.dir &#x3D; left;
-			&#125;
-				break;
-			case &#39;d&#39;:
-			case &#39;D&#39;:
-			case 77:
-			if (snake.dir !&#x3D; left)
-			&#123;
-				snake.dir &#x3D; right;
-			&#125;
-				break;
-			case &#39; &#39;:   &#x2F;&#x2F;按空格暂停
-				if (isplay)
-				&#123;
-					mciSendString(&quot;pause  bgm&quot;, 0, 0, 0);
-					isplay &#x3D; !isplay;
-					outtextxy(585, 10, &quot;关&quot;);
-				&#125;
-				else
-				&#123;
-					mciSendString(&quot;play  bgm repeat&quot;, 0, 0, 0);
-					isplay &#x3D; !isplay;
-					outtextxy(585, 10, &quot;开&quot;);
-				&#125;
-				while (1)
-				&#123;
-					if (_getch() &#x3D;&#x3D; &#39; &#39;)
-					&#123;
-						outtextxy(585, 10, &quot;开&quot;);
-						return;
-					&#125;
-				&#125;
-	     &#125;
+		cout&lt;&lt;dp[i]&lt;&lt;&quot; &quot;;
 	&#125;
-&#125;
-void eatfood()
-&#123;
-	sprintf(num,&quot;%d&quot;,cnt);
-	if (food.flag &#x3D;&#x3D; true &amp;&amp; snake.coor[0].x &gt;&#x3D; food.x - food.r &amp;&amp; snake.coor[0].x &lt;&#x3D; food.x + food.r
-		&amp;&amp; snake.coor[0].y &gt;&#x3D; food.y - food.r &amp;&amp; snake.coor[0].y &lt;&#x3D; food.y + food.r)
-	&#123;&#x2F;&#x2F;判断吃到食物
-		food.flag &#x3D; false;
-		snake.size++;
-		&#x2F;&#x2F;snake.speed++;
-		if (food.r&gt;&#x3D;8)
-		&#123;
-	        cnt+&#x3D;1;
-		&#125;
-		else if (food.r &lt; 8)
-		&#123;
-			cnt +&#x3D; 2;
-		&#125;
-	&#125;
-	if (food.flag &#x3D;&#x3D; false)&#x2F;&#x2F;刷新食物
-	&#123;
-		food.x &#x3D; rand() % length;&#x2F;&#x2F;随机产生一个整数的函数，需要随机数种子
-		food.y &#x3D; rand() % high;
-		food.color &#x3D; RGB(rand() % 256, rand() % 256, rand() % 256);
-		food.r &#x3D; rand() % 10 + 5;
-		food.flag &#x3D; true;
-	&#125;
-&#125;
-void cheak()&#x2F;&#x2F;吃到自己死亡
-&#123;
-	for (int i &#x3D; 1; i &lt; snake.size; i++)
-	&#123;
-		if (snake.coor[0].x &#x3D;&#x3D; snake.coor[i].x &amp;&amp;
-			snake.coor[0].y &#x3D;&#x3D; snake.coor[i].y)
-		&#123;
-			gameinit();
-			cnt &#x3D; 0;
-		&#125;
-	&#125;
-&#125;
-int main()
-&#123;	
-	gameinit();
-	while (1) 
-	&#123; 
-	  gamedraw();
-	  snakemove();
-	  keycontrol();
-	  eatfood();
-	  Sleep(20);&#x2F;&#x2F;延迟20毫秒
-	  cheak();
-	&#125;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="到此为止，感想大家观看"><a href="#到此为止，感想大家观看" class="headerlink" title="到此为止，感想大家观看"></a>到此为止，感想大家观看</h2><h2 id="ps-刚搭的博客，还没搞好，先凑合用"><a href="#ps-刚搭的博客，还没搞好，先凑合用" class="headerlink" title="ps:刚搭的博客，还没搞好，先凑合用"></a><del>ps:刚搭的博客，还没搞好，先凑合用</del></h2><p>此代码仅供参考，帮助大家理解。（毕竟我自己开始弄的时候什么都看不懂，花了好久才会的，希望这个能帮助大家）</p>
-
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -766,7 +552,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/17402.html">https://zzldy4.github.io/posts/17402.html</a>
+                    <a href="https://zzldy4.github.io/posts/9113.html">https://zzldy4.github.io/posts/9113.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -803,6 +589,10 @@ int main()
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
+                            
+                                <a href="/tags/dp/">
+                                    <span class="chip bg-color">dp</span>
+                                </a>
                             
                                 <a href="/tags/c/">
                                     <span class="chip bg-color">c++</span>
@@ -1306,17 +1096,18 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/29413.html">
+                <a href="/posts/9113.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="走迷宫（bfs)">
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="最长有序子序列（递增）">
                         
-                        <span class="card-title">走迷宫（bfs)</span>
+                        <span class="card-title">最长有序子序列（递增）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1326,9 +1117,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1337,11 +1128,16 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/bfs/">
-                        <span class="chip bg-color">bfs</span>
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
+                    </a>
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
                     </a>
                     
                 </div>
@@ -1355,13 +1151,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/16107.html">
+                <a href="/posts/46616.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="邮件监视">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">邮件监视</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1372,7 +1168,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-15
                             </span>
                         <span class="publish-author">
                             
@@ -1381,6 +1177,14 @@ int main()
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
+                        <span class="chip bg-color">蓝桥杯</span>
+                    </a>
+                    
                 </div>
                 
             </div>
