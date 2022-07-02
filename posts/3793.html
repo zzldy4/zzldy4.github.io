@@ -4,10 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="走迷宫（bfs), 谢邀，人在机房，已成秃头">
-    <meta name="description" content="问题描述给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。
-最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。
-">
+    <meta name="keywords" content="ros学习笔记（1）, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="ros信方式：话题通信和服务通信。话题通信：话题：（topic)–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps:同一个话题的订阅者或发布者可以不唯一消息：（Message)–话题数据。使用编程语言无关的.msg文件，编译过">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +19,7 @@
 
     
 
-    <title>走迷宫（bfs) | 谢邀，人在机房，已成秃头</title>
+    <title>ros学习笔记（1） | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">走迷宫（bfs)</h1>
+                    <h1 class="description center-align post-title">ros学习笔记（1）</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +430,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/bfs/">
-                                <span class="chip bg-color">bfs</span>
+                            <a href="/tags/ros/">
+                                <span class="chip bg-color">ros</span>
                             </a>
                         
                     </div>
@@ -448,28 +446,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-07-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-07-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    520
+                    211
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -492,73 +490,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>给定一个 n×m 的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。</p>
-<p>最初，有一个人位于左上角 (1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。</p>
-<p>请问，该人从左上角移动至右下角 (n,m) 处，至少需要移动多少次。</p>
-<p>数据保证 (1,1) 处和 (n,m) 处的数字为 0，且一定至少存在一条通路。</p>
-<p>输入格式<br>第一行包含两个整数 n 和 m。</p>
-<p>接下来 n 行，每行包含 m 个整数（0 或 1），表示完整的二维数组迷宫。</p>
-<p>输出格式<br>输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
-<p>数据范围<br>1≤n,m≤100</p>
-<h1 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h1><h1 id="5-5"><a href="#5-5" class="headerlink" title="5 5"></a>5 5</h1><h1 id="0-1-0-0-0"><a href="#0-1-0-0-0" class="headerlink" title="0 1 0 0 0"></a>0 1 0 0 0</h1><h1 id="0-1-0-1-0"><a href="#0-1-0-1-0" class="headerlink" title="0 1 0 1 0"></a>0 1 0 1 0</h1><h1 id="0-0-0-0-0"><a href="#0-0-0-0-0" class="headerlink" title="0 0 0 0 0"></a>0 0 0 0 0</h1><h1 id="0-1-1-1-0"><a href="#0-1-1-1-0" class="headerlink" title="0 1 1 1 0"></a>0 1 1 1 0</h1><h1 id="0-0-0-1-0"><a href="#0-0-0-1-0" class="headerlink" title="0 0 0 1 0"></a>0 0 0 1 0</h1><h1 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h1><h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;
-using namespace std;
-int n,m;
-int dx[]&#x3D;&#123;0,0,-1,1&#125;;
-int dy[]&#x3D;&#123;-1,1,0,0&#125;;
-int mp[110][110];
-int vis[110][110];
-struct node
-&#123;
-    int x,y,step;
-&#125;;
-bool cheak(int x,int y)
-&#123;
-	if(x&gt;&#x3D;1&amp;&amp;x&lt;&#x3D;n&amp;&amp;y&lt;&#x3D;m&amp;&amp;y&gt;&#x3D;1&amp;&amp;!vis[x][y]&amp;&amp;mp[x][y]!&#x3D;1)return true;
-	else return false;
-&#125;
-void bfs()
-&#123;
-    queue&lt;node&gt;q;
-    node now,next;
-    now.x&#x3D;now.y&#x3D;1;now.step&#x3D;0;
-    vis[1][1]&#x3D;1;
-    q.push(now); 
-	while(!q.empty())
-	&#123;
-	    now&#x3D;q.front();
-		q.pop();
-		if(now.x&#x3D;&#x3D;n&amp;&amp;now.y&#x3D;&#x3D;m)
-		&#123;
-		     cout&lt;&lt;now.step&lt;&lt;endl;
-			 return;	
-	    &#125;
-		for(int i&#x3D;0;i&lt;4;i++)
-		&#123;	
-	    	next.x&#x3D;now.x+dx[i];
-			next.y&#x3D;now.y+dy[i];
-			next.step&#x3D;now.step+1;
-			if(cheak(next.x,next.y))
-			&#123;
-				vis[next.x][next.y]&#x3D;1;
-				q.push(next);
-			&#125;
-		&#125;
-	&#125; 
-&#125;
-int main()
-&#123;
-    cin &gt;&gt; n &gt;&gt; m;
-    for (int i &#x3D; 1; i &lt;&#x3D; n; i ++ )
-      &#123;
-          for (int j &#x3D; 1; j &lt;&#x3D; m; j ++ )
-          &#123;
-              cin &gt;&gt; mp[i][j];
-          &#125;
-      &#125;
-      bfs();
-      return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="思路后续更新"><a href="#思路后续更新" class="headerlink" title="思路后续更新"></a>思路后续更新</h1>
+                <h1 id="ros信方式：话题通信和服务通信。"><a href="#ros信方式：话题通信和服务通信。" class="headerlink" title="ros信方式：话题通信和服务通信。"></a>ros信方式：话题通信和服务通信。</h1><h2 id="话题通信："><a href="#话题通信：" class="headerlink" title="话题通信："></a>话题通信：</h2><h3 id="话题：（topic-–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps-同一个话题的订阅者或发布者可以不唯一"><a href="#话题：（topic-–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps-同一个话题的订阅者或发布者可以不唯一" class="headerlink" title="话题：（topic)–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps:同一个话题的订阅者或发布者可以不唯一"></a>话题：（topic)–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps:同一个话题的订阅者或发布者可以不唯一</h3><h3 id="消息：（Message-–话题数据。使用编程语言无关的-msg文件，编译过程中生存对应的代码文件。"><a href="#消息：（Message-–话题数据。使用编程语言无关的-msg文件，编译过程中生存对应的代码文件。" class="headerlink" title="消息：（Message)–话题数据。使用编程语言无关的.msg文件，编译过程中生存对应的代码文件。"></a>消息：（Message)–话题数据。使用编程语言无关的.msg文件，编译过程中生存对应的代码文件。</h3><h2 id="服务通信："><a href="#服务通信：" class="headerlink" title="服务通信："></a>服务通信：</h2><h3 id="服务：使用客户端、服务器（c-s-模型。使用编程语言无关的-srv文件定义请求和应答数据结构。"><a href="#服务：使用客户端、服务器（c-s-模型。使用编程语言无关的-srv文件定义请求和应答数据结构。" class="headerlink" title="服务：使用客户端、服务器（c/s)模型。使用编程语言无关的.srv文件定义请求和应答数据结构。"></a>服务：使用客户端、服务器（c/s)模型。使用编程语言无关的.srv文件定义请求和应答数据结构。</h3><h2 id="两者对比：（第一个是话题，第二个服务）"><a href="#两者对比：（第一个是话题，第二个服务）" class="headerlink" title="两者对比：（第一个是话题，第二个服务）"></a>两者对比：（第一个是话题，第二个服务）</h2><h3 id="1）同步性：异步，同步。"><a href="#1）同步性：异步，同步。" class="headerlink" title="1）同步性：异步，同步。"></a>1）同步性：异步，同步。</h3><h3 id="2）底层协议：rostcp-rosudp"><a href="#2）底层协议：rostcp-rosudp" class="headerlink" title="2）底层协议：rostcp/rosudp"></a>2）底层协议：rostcp/rosudp</h3><h3 id="3）反馈机制：无，有"><a href="#3）反馈机制：无，有" class="headerlink" title="3）反馈机制：无，有."></a>3）反馈机制：无，有.</h3><h3 id="4）缓冲区：有，无"><a href="#4）缓冲区：有，无" class="headerlink" title="4）缓冲区：有，无"></a>4）缓冲区：有，无</h3><h3 id="5）实时性：弱，强"><a href="#5）实时性：弱，强" class="headerlink" title="5）实时性：弱，强"></a>5）实时性：弱，强</h3><h3 id="6）节点关系：多对多，一对多"><a href="#6）节点关系：多对多，一对多" class="headerlink" title="6）节点关系：多对多，一对多"></a>6）节点关系：多对多，一对多</h3><h3 id="7）适用场景：数据传输，逻辑处理"><a href="#7）适用场景：数据传输，逻辑处理" class="headerlink" title="7）适用场景：数据传输，逻辑处理"></a>7）适用场景：数据传输，逻辑处理</h3>
                 
             </div>
             <hr/>
@@ -584,7 +516,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/29413.html">https://zzldy4.github.io/posts/29413.html</a>
+                    <a href="https://zzldy4.github.io/posts/3793.html">https://zzldy4.github.io/posts/3793.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -622,8 +554,8 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/bfs/">
-                                    <span class="chip bg-color">bfs</span>
+                                <a href="/tags/ros/">
+                                    <span class="chip bg-color">ros</span>
                                 </a>
                             
                         </div>
@@ -1124,17 +1056,18 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/20518.html">
+                <a href="/posts/3793.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="免费馅饼（dp入门）">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="ros学习笔记（1）">
                         
-                        <span class="card-title">免费馅饼（dp入门）</span>
+                        <span class="card-title">ros学习笔记（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1144,9 +1077,55 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            菜狗
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ros/">
+                        <span class="chip bg-color">ros</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/9113.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="最长有序子序列（递增）">
+                        
+                        <span class="card-title">最长有序子序列（递增）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1161,51 +1140,6 @@ int main()
                     <a href="/tags/dp/">
                         <span class="chip bg-color">dp</span>
                     </a>
-                    
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/17402.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="贪吃蛇">
-                        
-                        <span class="card-title">贪吃蛇</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            菜狗
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
                     
                     <a href="/tags/c/">
                         <span class="chip bg-color">c++</span>

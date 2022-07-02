@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ros学习笔记（1）</title>
+      <link href="/posts/3793.html"/>
+      <url>/posts/3793.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="ros信方式：话题通信和服务通信。"><a href="#ros信方式：话题通信和服务通信。" class="headerlink" title="ros信方式：话题通信和服务通信。"></a>ros信方式：话题通信和服务通信。</h1><h2 id="话题通信："><a href="#话题通信：" class="headerlink" title="话题通信："></a>话题通信：</h2><h3 id="话题：（topic-–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps-同一个话题的订阅者或发布者可以不唯一"><a href="#话题：（topic-–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps-同一个话题的订阅者或发布者可以不唯一" class="headerlink" title="话题：（topic)–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps:同一个话题的订阅者或发布者可以不唯一"></a>话题：（topic)–异步通信机制。节点间用来传输数据的总线；使用发布订阅模型。ps:同一个话题的订阅者或发布者可以不唯一</h3><h3 id="消息：（Message-–话题数据。使用编程语言无关的-msg文件，编译过程中生存对应的代码文件。"><a href="#消息：（Message-–话题数据。使用编程语言无关的-msg文件，编译过程中生存对应的代码文件。" class="headerlink" title="消息：（Message)–话题数据。使用编程语言无关的.msg文件，编译过程中生存对应的代码文件。"></a>消息：（Message)–话题数据。使用编程语言无关的.msg文件，编译过程中生存对应的代码文件。</h3><h2 id="服务通信："><a href="#服务通信：" class="headerlink" title="服务通信："></a>服务通信：</h2><h3 id="服务：使用客户端、服务器（c-s-模型。使用编程语言无关的-srv文件定义请求和应答数据结构。"><a href="#服务：使用客户端、服务器（c-s-模型。使用编程语言无关的-srv文件定义请求和应答数据结构。" class="headerlink" title="服务：使用客户端、服务器（c/s)模型。使用编程语言无关的.srv文件定义请求和应答数据结构。"></a>服务：使用客户端、服务器（c/s)模型。使用编程语言无关的.srv文件定义请求和应答数据结构。</h3><h2 id="两者对比：（第一个是话题，第二个服务）"><a href="#两者对比：（第一个是话题，第二个服务）" class="headerlink" title="两者对比：（第一个是话题，第二个服务）"></a>两者对比：（第一个是话题，第二个服务）</h2><h3 id="1）同步性：异步，同步。"><a href="#1）同步性：异步，同步。" class="headerlink" title="1）同步性：异步，同步。"></a>1）同步性：异步，同步。</h3><h3 id="2）底层协议：rostcp-rosudp"><a href="#2）底层协议：rostcp-rosudp" class="headerlink" title="2）底层协议：rostcp/rosudp"></a>2）底层协议：rostcp/rosudp</h3><h3 id="3）反馈机制：无，有"><a href="#3）反馈机制：无，有" class="headerlink" title="3）反馈机制：无，有."></a>3）反馈机制：无，有.</h3><h3 id="4）缓冲区：有，无"><a href="#4）缓冲区：有，无" class="headerlink" title="4）缓冲区：有，无"></a>4）缓冲区：有，无</h3><h3 id="5）实时性：弱，强"><a href="#5）实时性：弱，强" class="headerlink" title="5）实时性：弱，强"></a>5）实时性：弱，强</h3><h3 id="6）节点关系：多对多，一对多"><a href="#6）节点关系：多对多，一对多" class="headerlink" title="6）节点关系：多对多，一对多"></a>6）节点关系：多对多，一对多</h3><h3 id="7）适用场景：数据传输，逻辑处理"><a href="#7）适用场景：数据传输，逻辑处理" class="headerlink" title="7）适用场景：数据传输，逻辑处理"></a>7）适用场景：数据传输，逻辑处理</h3>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ros </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最长有序子序列（递增）</title>
       <link href="/posts/9113.html"/>
       <url>/posts/9113.html</url>
