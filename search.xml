@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ros暑假学习日记（2）</title>
+      <link href="/posts/13787.html"/>
+      <url>/posts/13787.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><pre class="line-numbers language-none"><code class="language-none">  ros::init(argc, argv, &quot;velocity_publisher&quot;);初始化节点ros::NodeHandle  n;&#x2F;&#x2F;节点句柄ros::Publisher turtle_vel_pub &#x3D; n.advertise&lt;geometry_msgs::Twist&gt;(&quot;&#x2F;turtle1&#x2F;cmd_vel&quot;, 10);&#x2F;&#x2F; 定义名为turtle_vel_pub的Publisher名为turtle1&#x2F;cmd_vel的topic消息类型Ϊgeometry_msgs::Twist队列长10ros::Rate loop_rate(10);&#x2F;&#x2F;循环频率int count &#x3D; 0;while (ros::ok())判断是否存在节点&#123;      &#x2F;&#x2F; 定义名为vel_msg类型为geometry_msgs::Twist的消息geometry_msgs::Twist vel_msg;vel_msg.linear.x &#x3D; 0.5;&#x2F;&#x2F;???????vel_msg.angular.z &#x3D; 0.2;&#x2F;&#x2F;???????  &#x2F;&#x2F;发送消息turtle_vel_pub.publish(vel_msg);ROS_INFO(&quot;Publsh turtle velocity command[%0.2f m&#x2F;s, %0.2f rad&#x2F;s]&quot;, vel_msg.linear.x, vel_msg.angular.z);    &#x2F;&#x2F;按照循环频率延时    loop_rate.sleep();&#125;return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> ros </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ros学习笔记（1）</title>
       <link href="/posts/3793.html"/>
       <url>/posts/3793.html</url>

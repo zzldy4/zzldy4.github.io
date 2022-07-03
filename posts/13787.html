@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="邮件监视, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="问题链接：https://www.dotcpp.com/oj/problem2085.html问题描述作为一名网络警察，你的任务是监视电子邮件，看其中是否有一些敏感的关键词。不过，有些狡猾的犯罪嫌疑人会改变某些单词的字母顺序，以逃避检查。请">
+    <meta name="keywords" content="ros暑假学习日记（2）, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="代码解读  ros::init(argc, argv, &amp;quot;velocity_publisher&amp;quot;);初始化节点
+
+	ros::NodeHandle  n;&amp;#x2F;&amp;#x2F;节点句柄
+
+	ros::Publisher">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +23,7 @@
 
     
 
-    <title>邮件监视 | 谢邀，人在机房，已成秃头</title>
+    <title>ros暑假学习日记（2） | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">邮件监视</h1>
+                    <h1 class="description center-align post-title">ros暑假学习日记（2）</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +434,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                                <span class="chip bg-color">蓝桥杯</span>
+                            <a href="/tags/ros/">
+                                <span class="chip bg-color">ros</span>
                             </a>
                         
                     </div>
@@ -446,28 +450,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-15
+                    2022-07-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-15
+                    2022-07-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    586
+                    169
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -490,66 +494,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="问题链接：https-www-dotcpp-com-oj-problem2085-html"><a href="#问题链接：https-www-dotcpp-com-oj-problem2085-html" class="headerlink" title="问题链接：https://www.dotcpp.com/oj/problem2085.html"></a>问题链接：<a target="_blank" rel="noopener" href="https://www.dotcpp.com/oj/problem2085.html">https://www.dotcpp.com/oj/problem2085.html</a></h3><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>作为一名网络警察，你的任务是监视电子邮件，看其中是否有一些敏感的关键词。不过，有些狡猾的犯罪嫌疑人会改变某些单词的字母顺序，以逃避检查。请编写一个程序，发现这种调整过顺序的关键词。程序的输入有两行，第一行是关键词列表，第二行是待检查的句子。程序的输出为在该句子中所找到的经过顺序调整的关键词。（单词全部为小写，单词之间以一个空格分隔，每一行的单词个数不限）</p>
-<h2 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h2><h3 id="guns-mines-missiles"><a href="#guns-mines-missiles" class="headerlink" title="guns mines missiles"></a>guns mines missiles</h3><h3 id="aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis"><a href="#aameric-ssell-snug-dan-iimsssle-ot-sit-neeemis" class="headerlink" title="aameric ssell snug dan iimsssle ot sit neeemis"></a>aameric ssell snug dan iimsssle ot sit neeemis</h3><h2 id="输出："><a href="#输出：" class="headerlink" title="输出："></a>输出：</h2><h3 id="guns-missiles"><a href="#guns-missiles" class="headerlink" title="guns missiles"></a>guns missiles</h3><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>废物的我看到这题想着好麻烦，想着用for循环把每个字符串从输入提取出来然后再一一对比，感觉会死。但是我发现了大佬的写法，越发觉得stl真无敌，顺便学会了istringstream的用法。</p>
-<h4 id="下面是istringstream用法的举例"><a href="#下面是istringstream用法的举例" class="headerlink" title="下面是istringstream用法的举例"></a>下面是istringstream用法的举例</h4><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits&#x2F;stdc++.h&gt; 
-using namespace std;  
- int main()   
- &#123;  
-    string str &#x3D; &quot;aa bb cc dd ee&quot;;  
-    istringstream is(str);&#x2F;&#x2F;创建istringstream对象is
-     &#x2F;&#x2F;并同时使is和字符串str绑定 
-    string s;  
-     while (is &gt;&gt; s)&#x2F;&#x2F;将从str中读取到的字符串is写入到字符串s
-    &#123;  
-        cout &lt;&lt; s &lt;&lt; endl;  
-    &#125;  
-      return 0; 
-&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">输出如下:
+                <h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><pre class="line-numbers language-none"><code class="language-none">  ros::init(argc, argv, &quot;velocity_publisher&quot;);初始化节点
 
-aameric
-ssell
-snug
-dan
-iimsssle
-ot
-sit
-neeemis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>好，接下来说思路，那有了istringstream这样的利器就好写了,拿两个字符串进行输入，然后再用vector存放提取出来的字符串，同时把每个字符串sort一下，这样比较就只要简单的==就行了。</p>
-<h3 id="下面是源代码："><a href="#下面是源代码：" class="headerlink" title="下面是源代码："></a>下面是源代码：</h3><pre class="line-numbers language-none"><code class="language-none">#include&lt;iostream&gt;
-#include&lt;vector&gt;
-#include&lt;sstream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-int main() &#123;
-    string str1,str2;
-    getline(cin, str1);
-    getline(cin, str2);
-    vector&lt;string&gt;s1,s2,s3;
-    istringstream Str1(str1),Str2(str2);
-    string temp;
-    while(Str1&gt;&gt;temp) &#123;
-        s1.push_back(temp);
-        s2.push_back(temp);
-    &#125;
-    while (Str2&gt;&gt;temp) &#123;
-        s3.push_back(temp);
-    &#125;
-    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;
-        sort(s3[i].begin(),s3[i].end());
-    &#125;
-    for (int i &#x3D; 0; i &lt; s3.size(); i++) &#123;
-        for (int j &#x3D; 0; j&lt;s2.size(); j++) &#123;
-            sort(s2[j].begin(),s2[j].end());
-			if (s3[i] &#x3D;&#x3D; s2[j]) &#123;
-                cout &lt;&lt; s1[j] &lt;&lt;&quot; &quot;;
-                break; 
-            &#125;
-        &#125;
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	ros::NodeHandle  n;&#x2F;&#x2F;节点句柄
+
+	ros::Publisher turtle_vel_pub &#x3D; n.advertise&lt;geometry_msgs::Twist&gt;(&quot;&#x2F;turtle1&#x2F;cmd_vel&quot;, 10);
+&#x2F;&#x2F; 定义名为turtle_vel_pub的Publisher名为turtle1&#x2F;cmd_vel的topic消息类型Ϊgeometry_msgs::Twist队列长10
+
+	ros::Rate loop_rate(10);&#x2F;&#x2F;循环频率
+
+	int count &#x3D; 0;
+	while (ros::ok())判断是否存在节点
+	&#123;
+      &#x2F;&#x2F; 定义名为vel_msg类型为geometry_msgs::Twist的消息
+		geometry_msgs::Twist vel_msg;
+		vel_msg.linear.x &#x3D; 0.5;&#x2F;&#x2F;???????
+		vel_msg.angular.z &#x3D; 0.2;&#x2F;&#x2F;???????
+
+	  &#x2F;&#x2F;发送消息
+		turtle_vel_pub.publish(vel_msg);
+		ROS_INFO(&quot;Publsh turtle velocity command[%0.2f m&#x2F;s, %0.2f rad&#x2F;s]&quot;, 
+				vel_msg.linear.x, vel_msg.angular.z);
+
+	    &#x2F;&#x2F;按照循环频率延时
+	    loop_rate.sleep();
+	&#125;
+	return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -575,7 +546,7 @@ int main() &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/46616.html">https://zzldy4.github.io/posts/46616.html</a>
+                    <a href="https://zzldy4.github.io/posts/13787.html">https://zzldy4.github.io/posts/13787.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -613,8 +584,8 @@ int main() &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/">
-                                    <span class="chip bg-color">蓝桥杯</span>
+                                <a href="/tags/ros/">
+                                    <span class="chip bg-color">ros</span>
                                 </a>
                             
                         </div>
@@ -1115,17 +1086,18 @@ int main() &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/9113.html">
+                <a href="/posts/13787.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="最长有序子序列（递增）">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ros暑假学习日记（2）">
                         
-                        <span class="card-title">最长有序子序列（递增）</span>
+                        <span class="card-title">ros暑假学习日记（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1135,9 +1107,9 @@ int main() &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1146,15 +1118,12 @@ int main() &#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dp/">
-                        <span class="chip bg-color">dp</span>
-                    </a>
-                    
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                    <a href="/tags/ros/">
+                        <span class="chip bg-color">ros</span>
                     </a>
                     
                 </div>
@@ -1168,13 +1137,13 @@ int main() &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/20518.html">
+                <a href="/posts/3793.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="免费馅饼（dp入门）">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="ros学习笔记（1）">
                         
-                        <span class="card-title">免费馅饼（dp入门）</span>
+                        <span class="card-title">ros学习笔记（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1185,7 +1154,7 @@ int main() &#123;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
                             </span>
                         <span class="publish-author">
                             
@@ -1198,12 +1167,8 @@ int main() &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dp/">
-                        <span class="chip bg-color">dp</span>
-                    </a>
-                    
-                    <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                    <a href="/tags/ros/">
+                        <span class="chip bg-color">ros</span>
                     </a>
                     
                 </div>
