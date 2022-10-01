@@ -5,11 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ros学习日记（2）, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="代码解读  ros::init(argc, argv, &amp;quot;velocity_publisher&amp;quot;);初始化节点
+    <meta name="description" content="代码解读  ros::init(argc, argv, &#34;velocity_publisher&#34;);初始化节点
 
-	ros::NodeHandle  n;&amp;#x2F;&amp;#x2F;节点句柄
+	ros::NodeHandle  n;//节点句柄
 
-	ros::Publisher">
+	ros::Publisher turtle_vel_pub = n.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -36,7 +36,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -464,7 +466,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    169
+                    136
                 </div>
                 
 
@@ -494,31 +496,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><pre class="line-numbers language-none"><code class="language-none">  ros::init(argc, argv, &quot;velocity_publisher&quot;);初始化节点
+                <h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><pre class="line-numbers language-none"><code class="language-none">  ros::init(argc, argv, "velocity_publisher");初始化节点
 
-	ros::NodeHandle  n;&#x2F;&#x2F;节点句柄
+	ros::NodeHandle  n;//节点句柄
 
-	ros::Publisher turtle_vel_pub &#x3D; n.advertise&lt;geometry_msgs::Twist&gt;(&quot;&#x2F;turtle1&#x2F;cmd_vel&quot;, 10);
-&#x2F;&#x2F; 定义名为turtle_vel_pub的Publisher名为turtle1&#x2F;cmd_vel的topic消息类型Ϊgeometry_msgs::Twist队列长10
+	ros::Publisher turtle_vel_pub = n.advertise&lt;geometry_msgs::Twist&gt;("/turtle1/cmd_vel", 10);
+// 定义名为turtle_vel_pub的Publisher名为turtle1/cmd_vel的topic消息类型Ϊgeometry_msgs::Twist队列长10
 
-	ros::Rate loop_rate(10);&#x2F;&#x2F;循环频率
+	ros::Rate loop_rate(10);//循环频率
 
-	int count &#x3D; 0;
+	int count = 0;
 	while (ros::ok())判断是否存在节点
-	&#123;
-      &#x2F;&#x2F; 定义名为vel_msg类型为geometry_msgs::Twist的消息
+	{
+      // 定义名为vel_msg类型为geometry_msgs::Twist的消息
 		geometry_msgs::Twist vel_msg;
-		vel_msg.linear.x &#x3D; 0.5;&#x2F;&#x2F;???????
-		vel_msg.angular.z &#x3D; 0.2;&#x2F;&#x2F;???????
+		vel_msg.linear.x = 0.5;//???????
+		vel_msg.angular.z = 0.2;//???????
 
-	  &#x2F;&#x2F;发送消息
+	  //发送消息
 		turtle_vel_pub.publish(vel_msg);
-		ROS_INFO(&quot;Publsh turtle velocity command[%0.2f m&#x2F;s, %0.2f rad&#x2F;s]&quot;, 
+		ROS_INFO("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", 
 				vel_msg.linear.x, vel_msg.angular.z);
 
-	    &#x2F;&#x2F;按照循环频率延时
+	    //按照循环频率延时
 	    loop_rate.sleep();
-	&#125;
+	}
 	return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
@@ -1359,7 +1361,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4.3k</span>
+                        class="white-color">3.8k</span>
             
             
             

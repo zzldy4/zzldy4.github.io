@@ -34,7 +34,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
 
 
 <body>
@@ -462,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    520
+                    470
                 </div>
                 
 
@@ -500,64 +502,64 @@
 <p>接下来 n 行，每行包含 m 个整数（0 或 1），表示完整的二维数组迷宫。</p>
 <p>输出格式<br>输出一个整数，表示从左上角移动至右下角的最少移动次数。</p>
 <p>数据范围<br>1≤n,m≤100</p>
-<h1 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h1><h1 id="5-5"><a href="#5-5" class="headerlink" title="5 5"></a>5 5</h1><h1 id="0-1-0-0-0"><a href="#0-1-0-0-0" class="headerlink" title="0 1 0 0 0"></a>0 1 0 0 0</h1><h1 id="0-1-0-1-0"><a href="#0-1-0-1-0" class="headerlink" title="0 1 0 1 0"></a>0 1 0 1 0</h1><h1 id="0-0-0-0-0"><a href="#0-0-0-0-0" class="headerlink" title="0 0 0 0 0"></a>0 0 0 0 0</h1><h1 id="0-1-1-1-0"><a href="#0-1-1-1-0" class="headerlink" title="0 1 1 1 0"></a>0 1 1 1 0</h1><h1 id="0-0-0-1-0"><a href="#0-0-0-1-0" class="headerlink" title="0 0 0 1 0"></a>0 0 0 1 0</h1><h1 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h1><h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;
+<h1 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h1><h1 id="5-5"><a href="#5-5" class="headerlink" title="5 5"></a>5 5</h1><h1 id="0-1-0-0-0"><a href="#0-1-0-0-0" class="headerlink" title="0 1 0 0 0"></a>0 1 0 0 0</h1><h1 id="0-1-0-1-0"><a href="#0-1-0-1-0" class="headerlink" title="0 1 0 1 0"></a>0 1 0 1 0</h1><h1 id="0-0-0-0-0"><a href="#0-0-0-0-0" class="headerlink" title="0 0 0 0 0"></a>0 0 0 0 0</h1><h1 id="0-1-1-1-0"><a href="#0-1-1-1-0" class="headerlink" title="0 1 1 1 0"></a>0 1 1 1 0</h1><h1 id="0-0-0-1-0"><a href="#0-0-0-1-0" class="headerlink" title="0 0 0 1 0"></a>0 0 0 1 0</h1><h1 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h1><h1 id="8"><a href="#8" class="headerlink" title="8"></a>8</h1><h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 int n,m;
-int dx[]&#x3D;&#123;0,0,-1,1&#125;;
-int dy[]&#x3D;&#123;-1,1,0,0&#125;;
+int dx[]={0,0,-1,1};
+int dy[]={-1,1,0,0};
 int mp[110][110];
 int vis[110][110];
 struct node
-&#123;
+{
     int x,y,step;
-&#125;;
+};
 bool cheak(int x,int y)
-&#123;
-	if(x&gt;&#x3D;1&amp;&amp;x&lt;&#x3D;n&amp;&amp;y&lt;&#x3D;m&amp;&amp;y&gt;&#x3D;1&amp;&amp;!vis[x][y]&amp;&amp;mp[x][y]!&#x3D;1)return true;
+{
+	if(x&gt;=1&amp;&amp;x&lt;=n&amp;&amp;y&lt;=m&amp;&amp;y&gt;=1&amp;&amp;!vis[x][y]&amp;&amp;mp[x][y]!=1)return true;
 	else return false;
-&#125;
+}
 void bfs()
-&#123;
+{
     queue&lt;node&gt;q;
     node now,next;
-    now.x&#x3D;now.y&#x3D;1;now.step&#x3D;0;
-    vis[1][1]&#x3D;1;
+    now.x=now.y=1;now.step=0;
+    vis[1][1]=1;
     q.push(now); 
 	while(!q.empty())
-	&#123;
-	    now&#x3D;q.front();
+	{
+	    now=q.front();
 		q.pop();
-		if(now.x&#x3D;&#x3D;n&amp;&amp;now.y&#x3D;&#x3D;m)
-		&#123;
+		if(now.x==n&amp;&amp;now.y==m)
+		{
 		     cout&lt;&lt;now.step&lt;&lt;endl;
 			 return;	
-	    &#125;
-		for(int i&#x3D;0;i&lt;4;i++)
-		&#123;	
-	    	next.x&#x3D;now.x+dx[i];
-			next.y&#x3D;now.y+dy[i];
-			next.step&#x3D;now.step+1;
+	    }
+		for(int i=0;i&lt;4;i++)
+		{	
+	    	next.x=now.x+dx[i];
+			next.y=now.y+dy[i];
+			next.step=now.step+1;
 			if(cheak(next.x,next.y))
-			&#123;
-				vis[next.x][next.y]&#x3D;1;
+			{
+				vis[next.x][next.y]=1;
 				q.push(next);
-			&#125;
-		&#125;
-	&#125; 
-&#125;
+			}
+		}
+	} 
+}
 int main()
-&#123;
+{
     cin &gt;&gt; n &gt;&gt; m;
-    for (int i &#x3D; 1; i &lt;&#x3D; n; i ++ )
-      &#123;
-          for (int j &#x3D; 1; j &lt;&#x3D; m; j ++ )
-          &#123;
+    for (int i = 1; i &lt;= n; i ++ )
+      {
+          for (int j = 1; j &lt;= m; j ++ )
+          {
               cin &gt;&gt; mp[i][j];
-          &#125;
-      &#125;
+          }
+      }
       bfs();
       return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="思路后续更新"><a href="#思路后续更新" class="headerlink" title="思路后续更新"></a>思路后续更新</h1>
                 
             </div>
@@ -1399,7 +1401,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">4.3k</span>
+                        class="white-color">3.8k</span>
             
             
             
