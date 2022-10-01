@@ -4,12 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ros学习日记（2）, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="代码解读  ros::init(argc, argv, &#34;velocity_publisher&#34;);初始化节点
-
-	ros::NodeHandle  n;//节点句柄
-
-	ros::Publisher turtle_vel_pub = n.">
+    <meta name="keywords" content="pp, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +20,7 @@
 
     
 
-    <title>ros学习日记（2） | 谢邀，人在机房，已成秃头</title>
+    <title>pp | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/awesome/css/all.min.css">
@@ -315,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ros学习日记（2）</h1>
+                    <h1 class="description center-align post-title">pp</h1>
                 </div>
             </div>
         </div>
@@ -434,13 +431,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/ros/">
-                                <span class="chip bg-color">ros</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -452,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-03
+                    2022-10-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-09
+                    2022-10-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    136
+                    0
                 </div>
                 
 
@@ -496,32 +489,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><pre class="line-numbers language-none"><code class="language-none">  ros::init(argc, argv, "velocity_publisher");初始化节点
-
-	ros::NodeHandle  n;//节点句柄
-
-	ros::Publisher turtle_vel_pub = n.advertise&lt;geometry_msgs::Twist&gt;("/turtle1/cmd_vel", 10);
-// 定义名为turtle_vel_pub的Publisher名为turtle1/cmd_vel的topic消息类型Ϊgeometry_msgs::Twist队列长10
-
-	ros::Rate loop_rate(10);//循环频率
-
-	int count = 0;
-	while (ros::ok())判断是否存在节点
-	{
-      // 定义名为vel_msg类型为geometry_msgs::Twist的消息
-		geometry_msgs::Twist vel_msg;
-		vel_msg.linear.x = 0.5;//???????
-		vel_msg.angular.z = 0.2;//???????
-
-	  //发送消息
-		turtle_vel_pub.publish(vel_msg);
-		ROS_INFO("Publsh turtle velocity command[%0.2f m/s, %0.2f rad/s]", 
-				vel_msg.linear.x, vel_msg.angular.z);
-
-	    //按照循环频率延时
-	    loop_rate.sleep();
-	}
-	return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p><img src="/posts/9252.htm/2.png" alt="error"></p>
 
                 
             </div>
@@ -548,7 +516,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/13787.html">https://zzldy4.github.io/posts/13787.html</a>
+                    <a href="https://zzldy4.github.io/posts/9252.html">https://zzldy4.github.io/posts/9252.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,11 +553,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/ros/">
-                                    <span class="chip bg-color">ros</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1088,9 +1052,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/9252.html">
                     <div class="card-image">
@@ -1108,9 +1073,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1119,6 +1084,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1129,13 +1095,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/3793.html">
+                <a href="/posts/13787.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="ros学习笔记（1）">
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="ros学习日记（2）">
                         
-                        <span class="card-title">ros学习笔记（1）</span>
+                        <span class="card-title">ros学习日记（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1146,7 +1112,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
                             </span>
                         <span class="publish-author">
                             
