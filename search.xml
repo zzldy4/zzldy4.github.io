@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>数据溢出</title>
+      <link href="/posts/43290.html"/>
+      <url>/posts/43290.html</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-none"><code class="language-none">#include&lt;stdio.h&gt;#include&lt;math.h&gt;int main(){   short s1=32767,s2=-32768,s; //-32768为16位最小负数，32767为16位最大正数    unsigned char uc1=128,uc2=255,uc;//255为8位无符号最大值    s=s1+1;   printf("%d+1=%d\n",s1,s);// 输出32767+1=-32768   s=s2-3;   printf("%d-3=%d\n",s2,s);//输出-32768-3=32765   uc=uc1+uc2;   printf("%d+%d=%d\n",uc1,uc2,uc);//输出128+255=127   uc=uc1-uc2;   printf("%d-%d=%d\n",uc1,uc2,uc);//输出128-255=129      int p=pow(2,31);//应该是p=2147483648   printf("2^31=%d\n",p);//程序计算出是p=2147483647   p=p+1;   printf("2^31+1=%d\n",p);//p=-2147483648   p=p+1;   printf("2^31+1+1%d\n",p);//p=-2147483647  return 0;}/*     111 1111 1111 1111 1111 1111 1111 1111   2^31-1=2,147,483,647  1000 0000 0000 0000 0000 0000 0000 0000   2^31  =2,147,483,6481 0000 0000 0000 0000 0000 0000 0000 0000   2^32*/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>上面是实验代码。</p><p>原理如下，数据类型在计算机中的储存方式是二进制，且用补码表示</p><p><img src="/posts/43290.htm/1.jpg"></p><p>ps(有符号数第一位是符号位，0为正数，1为负数)</p><p>以四位数的上溢举例：</p><table><thead><tr><th>无符号数</th><th>有符号数</th></tr></thead><tbody><tr><td>1111</td><td>0111</td></tr><tr><td>+0001</td><td>+0001</td></tr><tr><td>10000</td><td>1000</td></tr></tbody></table><p>由于是四位，所以只能保留后四位，所以第一个结果为0，第二个因为第一位为1，所以是-8。</p><p>下面是下溢：</p><table><thead><tr><th>无符号数</th><th>有符号数</th></tr></thead><tbody><tr><td>0000</td><td>1000</td></tr><tr><td>-0001</td><td>-0001</td></tr><tr><td>1111</td><td>0111</td></tr></tbody></table>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> c </tag>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ros学习日记（2）</title>
       <link href="/posts/13787.html"/>
       <url>/posts/13787.html</url>
