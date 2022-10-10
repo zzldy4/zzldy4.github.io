@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="运算器组成实验, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="这个实验是关于计算器的组成，实验平台是Quartus II
+首先是实验原理图：
+
+
+然后跟据原理写下面的实验代码，语言是vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +26,7 @@
 
     
 
-    <title>Hello World | 谢邀，人在机房，已成秃头</title>
+    <title>运算器组成实验 | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/libs/awesome/css/all.min.css">
@@ -311,12 +318,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">运算器组成实验</h1>
                 </div>
             </div>
         </div>
@@ -430,9 +437,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                <span class="chip bg-color">计算机组成原理</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -444,28 +455,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-04
+                    2022-10-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-10-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    821
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -488,19 +499,114 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>这个实验是关于计算器的组成，实验平台是Quartus II</p>
+<p>首先是实验原理图：</p>
+<p><img src="/posts/1dd4624d/3.PNG"></p>
+<p><img src="/posts/1dd4624d/2.PNG"></p>
+<p>然后跟据原理写下面的实验代码，语言是vhdl</p>
+<pre class="line-numbers language-none"><code class="language-none">library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+entity exp_r_alu is
+port(	clk                          :in std_logic;
+		sw_bus,r4_bus,r5_bus,alu_bus :in std_logic;
+		lddr1,lddr2,ldr4,ldr5        :in std_logic;
+		m,cn                         :in std_logic;
+		s                            :in std_logic_vector(3 downto 0);
+		k                            :in std_logic_vector(7 downto 0);
+		d                            :inout std_logic_vector(7 downto 0) );
+end exp_r_alu;
+architecture rtl of exp_r_alu is
+signal dr1,dr2,r4,r5,aluout,bus_reg:std_logic_vector(7 downto 0);
+signal sel:std_logic_vector(5 downto 0);
+begin
+ldreg:process(clk,lddr1,lddr2,ldr4,ldr5,bus_reg)
+	begin
+	if clk'event and clk='1' then
+		if lddr1='1' then dr1&lt;=bus_reg;
+	    elsif lddr2='1' then dr2&lt;=bus_reg;
+	    elsif ldr4='1' then r4&lt;=bus_reg;
+	    elsif ldr5='1' then r5&lt;=bus_reg;
+	    end if;
+	end if;
+	end process;
+alu:process(m,cn,s,dr1,dr2,sel,aluout)
+   begin
+   sel&lt;=m &amp; cn &amp; s;
+   case sel is
+	when "000000" =&gt; aluout&lt;=dr1+1;
+	when "010000" =&gt; aluout&lt;=dr1;
+	when "100000" =&gt; aluout&lt;=not dr1;
+	when "000001" =&gt; aluout&lt;=(dr1 or dr2)+1;
+	when "010001" =&gt; aluout&lt;=dr1 or dr2;
+	when "100001" =&gt; aluout&lt;=not(dr1 or dr2);
+	when "000010" =&gt; aluout&lt;=(dr1 or (not dr2))+1;
+	when "010010" =&gt; aluout&lt;=dr1 or (not dr2);
+	when "100010" =&gt; aluout&lt;=(not dr1)and dr2;
+	when "000011" =&gt; aluout&lt;=x"00";
+	when "010011" =&gt; aluout&lt;=aluout-1;
+	when "100011" =&gt; aluout&lt;=x"00";
+	when "000100" =&gt; aluout&lt;=dr1+(dr1 and (not dr2))+1;
+	when "010100" =&gt; aluout&lt;=dr1+(dr1 and (not dr2));
+	when "100100" =&gt; aluout&lt;=not (dr1 and dr2);
+	when "000101" =&gt; aluout&lt;=((dr1 or dr2 or dr1) and dr2) or x"01";
+	when "010101" =&gt; aluout&lt;=(dr1 or dr2)+(dr1 and(not dr2));
+	when "100101" =&gt; aluout&lt;=not dr2;
+	when "000110" =&gt; aluout&lt;=dr1-dr2;
+	when "010110" =&gt; aluout&lt;=dr1-dr2-1;
+	when "100110" =&gt; aluout&lt;=dr1 xor dr2;
+	when "000111" =&gt; aluout&lt;=dr1 and(not dr2);
+	when "010111" =&gt; aluout&lt;=(dr1 and (not dr2))-1;
+	when "100111" =&gt; aluout&lt;=dr1 and(not dr2);
+	when "001000" =&gt; aluout&lt;=dr1+(dr1 and dr2)+1;
+	when "011000" =&gt; aluout&lt;=dr1+(dr1 and dr2);
+	when "101000" =&gt; aluout&lt;=(not dr1)or dr2;
+	when "001001" =&gt; aluout&lt;=dr1+dr2+1;
+	when "011001" =&gt; aluout&lt;=dr1+dr2;
+  
+	when "101001" =&gt; aluout&lt;=dr1 xnor dr2;
+	when "001010" =&gt; aluout&lt;=(dr1 or(not dr2))+(dr1 and dr2)+1;
+	when "011010" =&gt; aluout&lt;=(dr1 or(not dr2))+(dr1 and dr2);
+	when "101010" =&gt; aluout&lt;=dr2;
+	when "001011" =&gt; aluout&lt;=dr1 and dr2;
+	when "011011" =&gt; aluout&lt;=(dr1 and dr2)-1;
+	when "101011" =&gt; aluout&lt;=dr1 and dr2;
+	when "001100" =&gt; aluout&lt;=dr1+dr1+1;
+	when "011100" =&gt; aluout&lt;=dr1 or dr1;
+	when "101100" =&gt; aluout&lt;=x"01";
+	when "001101" =&gt; aluout&lt;=(dr1 or dr2)+dr1+1;
+	when "011101" =&gt; aluout&lt;=(dr1 or dr2)+dr1;
+	when "101101" =&gt; aluout&lt;=dr1 or(not dr2);
+	when "001110" =&gt; aluout&lt;=(dr1 or (not dr2))+dr1+1;
+	when "011110" =&gt; aluout&lt;=(dr1 or (not dr2))+dr1;
+	when "101110" =&gt; aluout&lt;=dr1 or dr2;
+	when "001111" =&gt; aluout&lt;=dr1;
+	when "011111" =&gt; aluout&lt;=dr1-1;
+	when "101111" =&gt; aluout&lt;=dr1;
+	when others   =&gt; aluout&lt;=x"ff";
+end case;
+end process;
+bus_reg&lt;=k     when sw_bus='0'  else
+		 r4     when r4_bus='0'  else
+		 r5     when r5_bus='0'  else
+		 aluout  when alu_bus='0' else 
+		d;
+d&lt;=bus_reg when (sw_bus='0' or r4_bus='0' or r5_bus='0' or alu_bus='0') else
+   (others=&gt;'Z');	
+end rtl;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>下面是波形仿真图，结果如下</p>
+<p><img src="/posts/1dd4624d/1.PNG"></p>
+<p>k:是输入的数</p>
+<p>ldr1/r2/r4/r5:代表选择存入哪个寄存器。（高电位有效）</p>
+<p>sw_/r4/r5/alu:代表选择哪个进行输入（低电平有效，sw_代表数据总线输入数据也就是输入k的数）</p>
+<p>m/cn/s:m代表是否进行逻辑计算，cn代表是否进行进位计算，m代表哪个模式（模式看74181模式图）</p>
+<p>dr1:表示r1寄存器的数</p>
+<p>dr2:表示r2寄存器的数</p>
+<p>r4:表示r4寄存器的数</p>
+<p>r5:表示r5寄存器的数</p>
+<p>d`result:表示输出的数</p>
 
                 
             </div>
@@ -527,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/16107.html">https://zzldy4.github.io/posts/16107.html</a>
+                    <a href="https://zzldy4.github.io/posts/1dd4624d.html">https://zzldy4.github.io/posts/1dd4624d.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -564,7 +670,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                                    <span class="chip bg-color">计算机组成原理</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1063,17 +1173,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/17402.html">
+                <a href="/posts/1dd4624d.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="贪吃蛇">
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="运算器组成实验">
                         
-                        <span class="card-title">贪吃蛇</span>
+                        <span class="card-title">运算器组成实验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1083,9 +1194,55 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            菜狗
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">计算机组成原理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/43290.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="数据溢出">
+                        
+                        <span class="card-title">数据溢出</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1098,48 +1255,14 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/c/">
-                        <span class="chip bg-color">c++</span>
+                        <span class="chip bg-color">c</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">计算机组成原理</span>
                     </a>
                     
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/16107.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/zzldy4/zzldy4.github.io/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            菜狗
-                            
-                        </span>
-                    </div>
-                </div>
-
                 
             </div>
         </div>
