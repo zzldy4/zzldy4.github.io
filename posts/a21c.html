@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="01背包, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="题目链接：2. 01背包问题 - AcWing题库首先是经典做法：定义  dp[i][j]:代表前i个物体在j空间下价值最大是多少
-然后我们要知道当前的状态依赖于之前的状态，可以理解为从初始状态dp[1][0] = 0开始决策，那么到了dp">
+    <meta name="keywords" content="赵丽竹, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
 
     
 
-    <title>01背包 | 谢邀，人在机房，已成秃头</title>
+    <title>赵丽竹 | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">01背包</h1>
+                    <h1 class="description center-align post-title">赵丽竹</h1>
                 </div>
             </div>
         </div>
@@ -431,13 +431,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/dp/">
-                                <span class="chip bg-color">dp</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -449,28 +445,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-28
+                    2023-04-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-28
+                    2023-04-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    877
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -493,79 +489,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="题目链接：2-01背包问题-AcWing题库"><a href="#题目链接：2-01背包问题-AcWing题库" class="headerlink" title="题目链接：2. 01背包问题 - AcWing题库"></a>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/2/">2. 01背包问题 - AcWing题库</a></h3><h2 id="首先是经典做法："><a href="#首先是经典做法：" class="headerlink" title="首先是经典做法："></a>首先是经典做法：</h2><p>定义  dp[i][j]:代表前i个物体在j空间下价值最大是多少</p>
-<p>然后我们要知道当前的状态依赖于之前的状态，可以理解为从初始状态dp[1][0] = 0开始决策，那么到了dp[1][1]就有两种选择，在当前空间够的情况下比较放入该物体后的价值与不放入该物体的价值，而如果空间不够，就保持之前状态不变。所以递推式就是</p>
-<p><code>dp[i][j] = max(dp[i-1][j], dp[i-1][j-v[i]] + w[i])</code></p>
-<h3 id="下面是代码实现："><a href="#下面是代码实现：" class="headerlink" title="下面是代码实现："></a>下面是代码实现：</h3><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int w[1010],v[1010];
-int dp[1010][1010];
-int main(){
-    int m,n;
-    cin&gt;&gt;n&gt;&gt;m;//n为物品数量    m为背包容积。
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;w[i];//重量 
-        cin&gt;&gt;v[i];//价值 
-    }
-    for(int i=1;i&lt;=n;i++){
-        for(int j=1;j&lt;=m;j++){
-            if(j&lt;w[i]){//当前物体体积超出背包体积
-                dp[i][j]=dp[i-1][j];
-            }
-            //可以放入，比较放入与不放哪个更优
-            else{
-                dp[i][j]=max(dp[i-1][j],dp[i-1][j-w[i]]+v[i]);
-            }
-        }
-    }
-    cout&lt;&lt;dp[n][m]&lt;&lt;endl;
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="然后我们进行优化：使用滚动数组"><a href="#然后我们进行优化：使用滚动数组" class="headerlink" title="然后我们进行优化：使用滚动数组"></a>然后我们进行优化：使用滚动数组</h2><p>根据上面的递推式我们能发现dp[i][j]的值要么保持不变，要么就是根据dp[i-1][j-w[i]]与dp[i-1][j]的比较进行改变。也就是说 dp 数组中第i行的元素仅由第 i−1 行的元素得来，即第 0 行元素的更新值放到第 1 行，第 1 行元素的更新值放到第 2 行，以此类推。与其把一行的更新值放到新的一行，不如直接就地更新，因此我们的 dp 数组只需要一行来存储，即一维数组。</p>
-<h4 id="那么递推式就是-dp-j-max-dp-j-dp-j−w-i-v-i"><a href="#那么递推式就是-dp-j-max-dp-j-dp-j−w-i-v-i" class="headerlink" title="那么递推式就是 dp[j]=max(dp[j],dp[j−w[i]]+v[i])"></a>那么递推式就是 dp[j]=max(dp[j],dp[j−w[i]]+v[i])</h4><p>但是这样做还有个问题，那就是j的遍历得改成倒序。首先我们要明白一维数组dp[j]其实就相当与dp[n][j]，所以dp[j]就应该代表当前空间下放入所有物体的最优解。而在原本递推式中一维的dp[j-1]其实应该代表dp[i-1][j-1],但是顺序遍历会直接将dp[j-1]直接更新为dp[i][j-1]，所以应该倒过来，这样才能保证前面的数是当前数的上一层。</p>
-<h2 id="下面是优化后代码"><a href="#下面是优化后代码" class="headerlink" title="下面是优化后代码"></a>下面是优化后代码</h2><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int w[1010],v[1010];
-int dp[1010];
-int main(){
-    int m,n;
-    cin&gt;&gt;n&gt;&gt;m;//n为物品数量    m为背包容积。
-    for(int i=1;i&lt;=n;i++){
-        cin&gt;&gt;v[i];//体积 
-        cin&gt;&gt;w[i];//价值 
-    }
-    for(int i=1;i&lt;=n;i++){//这里的i其实可以理解为dp[i][j]中的i，这样更好理解当前层与上一层
-    	for(int j=m;j&gt;=v[i];j--){
-			 	dp[j]=max(dp[j],dp[j-v[i]]+w[i]);
-	    }
-	}
-      cout&lt;&lt;dp[m]&lt;&lt;endl;
-      return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <p><img src="/posts/a21c/ersolution.jpg"></p>
 
-<h2 id="当然还可以在优化一点点，那就是在输入上优化。"><a href="#当然还可以在优化一点点，那就是在输入上优化。" class="headerlink" title="当然还可以在优化一点点，那就是在输入上优化。"></a>当然还可以在优化一点点，那就是在输入上优化。</h2><pre class="line-numbers language-none"><code class="language-none">#include&lt;bits/stdc++.h&gt;
-
-using namespace std;
-
-const int MAXN = 1005;
-int dp[MAXN];  // 
-
-int main() 
-{
-    int n, m;   
-    cin &gt;&gt; n &gt;&gt; m;
-
-    for(int i = 1; i &lt;= n; i++) {
-        int v, w;
-        cin &gt;&gt; v &gt;&gt; w;      // 边输入边处理
-        for(int j = m; j &gt;= v; j--)
-            dp[j] = max(f[j], f[j - v] + w);
-    }
-
-    cout &lt;&lt; dp[m] &lt;&lt; endl;
-
-    return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -591,7 +516,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/25ef.html">https://zzldy4.github.io/posts/25ef.html</a>
+                    <a href="https://zzldy4.github.io/posts/a21c.html">https://zzldy4.github.io/posts/a21c.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,11 +553,7 @@ int main()
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/dp/">
-                                    <span class="chip bg-color">dp</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1131,9 +1052,10 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/a21c.html">
                     <div class="card-image">
@@ -1151,9 +1073,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1162,6 +1084,7 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1172,13 +1095,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/5a09b4da.html">
+                <a href="/posts/25ef.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="二叉树构建">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="01背包">
                         
-                        <span class="card-title">二叉树构建</span>
+                        <span class="card-title">01背包</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1189,7 +1112,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-28
                             </span>
                         <span class="publish-author">
                             
@@ -1202,8 +1125,8 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
                     </a>
                     
                 </div>
