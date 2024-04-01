@@ -4,10 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二叉树构建, 谢邀，人在机房，已成秃头">
-    <meta name="description" content="首先我们要知道二叉树常用到的遍历有这三种先序遍历：*先遍历根节点，然后再分别遍历左节点和右节点。(根左右)*
-中序遍历：*先遍历左节点，然后再遍历根节点，最后遍历右节点。(左根右)*
-后序遍历：*先遍历左节点，然后再遍历右节点，最后遍历根节">
+    <meta name="keywords" content="表达式求值, 谢邀，人在机房，已成秃头">
+    <meta name="description" content="#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+#include&amp;lt;stack&amp;gt;
+
+using namespace std">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +24,7 @@
 
     
 
-    <title>二叉树构建 | 谢邀，人在机房，已成秃头</title>
+    <title>表达式求值 | 谢邀，人在机房，已成秃头</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +316,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二叉树构建</h1>
+                    <h1 class="description center-align post-title">表达式求值</h1>
                 </div>
             </div>
         </div>
@@ -450,28 +453,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-16
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-16
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    750
+                    465
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -494,104 +497,130 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="首先我们要知道二叉树常用到的遍历有这三种"><a href="#首先我们要知道二叉树常用到的遍历有这三种" class="headerlink" title="首先我们要知道二叉树常用到的遍历有这三种"></a>首先我们要知道二叉树常用到的遍历有这三种</h2><p><strong>先序遍历：*<em>先遍历根节点，然后再分别遍历左节点和右节点。(根左右)*</em></strong></p>
-<p><strong>中序遍历：*<em>先遍历左节点，然后再遍历根节点，最后遍历右节点。(左根右)*</em></strong></p>
-<p><strong>后序遍历：*<em>先遍历左节点，然后再遍历右节点，最后遍历根节点。（左右根）*</em></strong></p>
-<p>如下图所示</p>
-<p><img src="/posts/5a09b4da/1.png" alt="error"></p>
-<h3 id="按照中序遍历的打印顺序为：D-B-E-A-F-C-G"><a href="#按照中序遍历的打印顺序为：D-B-E-A-F-C-G" class="headerlink" title="按照中序遍历的打印顺序为：D　B　E　A　F　C　G"></a>按照<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86&amp;spm=1001.2101.3001.7020">中序遍历</a>的打印顺序为：D　B　E　A　F　C　G</h3><h3 id="按照先序遍历的打印顺序为：A-B-D-E-C-F-G"><a href="#按照先序遍历的打印顺序为：A-B-D-E-C-F-G" class="headerlink" title="按照先序遍历的打印顺序为：A　B　D　E　C　F　G"></a>按照<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86&amp;spm=1001.2101.3001.7020">先序遍历</a>的打印顺序为：A　B　D　E　C　F　G</h3><h3 id="按照后序遍历的打印顺序为：D-E-B-F-G-C-A"><a href="#按照后序遍历的打印顺序为：D-E-B-F-G-C-A" class="headerlink" title="按照后序遍历的打印顺序为：D　E　B 　F   G    C   A"></a>按照后序遍历的打印顺序为：D　E　B 　F   G    C   A</h3><p> 我们首先应该知道只有一种遍历序列是无法得出二叉树的树形的。因为不同的二叉树可能有一个相同的先序序列、中序序列、和后序序列。但是一棵二叉树有唯一的三个先序序列、中序序列、和后序序列</p>
-<p>有数学证明（反正我看不懂）</p>
-<p><img src="/posts/5a09b4da/6.jpg"></p>
-<p><img src="/posts/5a09b4da/7.jpg"></p>
-<p>那么接下来我们就要研究如何由前序遍历序列和中序遍历序列构造二叉树</p>
-<p><u>ps（其实只要同时知道两种序列就能确定二叉树了）</u></p>
-<table>
-<thead>
-<tr>
-<th>先序</th>
-<th>ABCDE</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>中序</td>
-<td>CDBAE</td>
-</tr>
-</tbody></table>
-<p>那根据先序遍历我们就能知道根节点就是A，又通过中序节点能得知CDB为A的左子树中的节点，E为右子树的节点</p>
-<p><img src="/posts/5a09b4da/2.png"></p>
-<p>然后以B为根节点，又通过中序节点得知CD为B的左子树的节点，无右子树。</p>
-<p><img src="/posts/5a09b4da/3.png"></p>
-<p>以此类推，C为根节点，无左子树，D为右子树</p>
-<p><img src="/posts/5a09b4da/4.png"></p>
-<p>创建后二叉树如下</p>
-<p><img src="/posts/5a09b4da/5.png"></p>
-<p>以上图片引用:<a target="_blank" rel="noopener" href="https://blog.csdn.net/Nan_Feng726/article/details/91049122">https://blog.csdn.net/Nan_Feng726/article/details/91049122</a></p>
-<p>下面是代码，主要是通过递归实现</p>
-<pre class="line-numbers language-none"><code class="language-none">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
+                <pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#include&lt;stack&gt;
 
-struct TNode{
-	char data;
-	struct TNode* left;
-	struct TNode* right;
-};
-
-TNode* InPreToTree(char *pa, char *ia, int p1, int p2, int i1, int i2)//返回树的根节点
+using namespace std;
+string num;
+int a;
+stack &lt;char&gt; stk1;//存放未确定的运算符
+stack &lt;int&gt; stk2;//存放操作数
+bool Is_num(char c)//判断是否为操作数
 {
-	TNode* root =  new TNode;
-	if(p1&gt;p2)return NULL; //该节点不存在
-    root-&gt;data=pa[p1];
-	int i = 0;           
-    printf("%c\n",pa[p1]);
-	while (ia[i] != pa[p1])i++;//在中序中找到根节点所在的下标
-	int llen = i - i1;//得出左节点数量
-	int rlen = i2 - i;//得出右节点数量
-	if (i1 &gt;= i2) {//不存在左右子树
-		root-&gt;left = root-&gt;right = NULL;
-    }
-	else {
-	//切出左子树的前序和中序
-	root-&gt;left = InPreToTree(pa, ia, p1 + 1, p1+ llen, i1, i1+ llen-1);
-	//切出右子树的前序和中序
-    root-&gt;right= InPreToTree(pa, ia, p2 - rlen + 1, p2, i2- rlen+ 1, i2);           
-	}
-	return root;
-} 
-
-void PrintPostTravel(TNode* t)
-{
-	if(t==NULL) return;
-	if(t-&gt;left) PrintPostTravel(t-&gt;left);
-	if(t-&gt;right) PrintPostTravel(t-&gt;right);
-	printf("%c", t-&gt;data);
+    if(c &gt;='0' &amp;&amp; c&lt;='9')return true;
+    else return false;
 }
-
-void DeleteTree(TNode* t)
-{
-	if(t==NULL) return;
-	if(t-&gt;left) DeleteTree(t-&gt;left);
-	if(t-&gt;right) DeleteTree(t-&gt;right);
-	delete t;
-}
-
-
 int main()
 {
-	char pre[100], in[100];
-	int n; //用来保存序列长度
-	TNode *t;//用来保存二叉树的根
-	scanf("%s", pre);
-	scanf("%s", in);
-	n=0; while(pre[n]) n++;
-	t= InPreToTree(pre, in, 0, n-1, 0, n-1);             
-	PrintPostTravel(t);
-	printf("\n");
-	DeleteTree(t);
+    cin &gt;&gt; num;
+    int length=num.size();
+    for (int i = 0; i &lt; length; i ++ )
+    {
+        if(Is_num(num[i]))
+        {
+            a=a*10+num[i]-'0';
+            if(!Is_num(num[i+1]))
+            {
+                cout &lt;&lt;"压入操作数"&lt;&lt; a&lt;&lt;" ";
+                stk2.push(a);
+                printf("栈顶%d\n",stk2.top());
+                a=0;
+            }
+            //cout &lt;&lt; a;
+        }
+        else
+        {
+            if(num[i]=='(') //碰到界限符(左括号)
+            {
+                stk1.push(num[i]);
+            }
+            else//遇到运算符
+            {
+                if(stk1.empty()) //空栈直接压入
+                {
+                    stk1.push(num[i]);
+                }
+                else
+                {
+                    if(num[i]=='*'||num[i]=='/')//遇到乘除法
+                    {
+                        while(!stk1.empty()&amp;&amp;stk1.top()!='(')
+                        {
+                            if(stk1.top()=='*'||stk1.top()=='/')
+                            {
+                                //printf("%c",stk1.top());
+                                int a=stk2.top();
+                                stk2.pop();
+                                int b=stk2.top();
+                                stk2.pop();
+                                printf("%d%c%d\n",b,stk1.top(),a);
+                                if(stk1.top()=='*')stk2.push(b*a);
+                                else stk2.push(b/a);
+                                stk1.pop();
+                            }
+                            else break;
+                        }
+                        stk1.push(num[i]);
+                    }
+                    else if(num[i]=='+'||num[i]=='-')//遇到加减法
+                    {
+                        while(!stk1.empty()&amp;&amp;stk1.top()!='(')
+                        {
+                            //printf("%c",stk1.top());
+                            int a=stk2.top();
+                            stk2.pop();
+                            int b=stk2.top();
+                            stk2.pop();
+                            printf("%d%c%d\n",b,stk1.top(),a);
+                            if(stk1.top()=='+')stk2.push(a+b);
+                            else if(stk1.top()=='-')stk2.push(b-a);
+                            else if(stk1.top()=='*')stk2.push(b*a);
+                            else stk2.push(b/a);
+                            stk1.pop();
+                        }
+                        stk1.push(num[i]);
+                    }
+                    else if(num[i]==')')//遇到右括号
+                    {
+                       while(!stk1.empty()&amp;&amp;stk1.top()!='(')
+                       {
+                           //printf("%c",stk1.top());
+                           int a=stk2.top();
+                           stk2.pop();
+                           int b=stk2.top();
+                           stk2.pop();
+                           printf("%d%c%d\n",b,stk1.top(),a);
+                           if(stk1.top()=='+')stk2.push(a+b);
+                           else if(stk1.top()=='-')stk2.push(b-a);
+                           else if(stk1.top()=='*')stk2.push(b*a);
+                           else stk2.push(b/a);
+                           stk1.pop();
+                       }
+                       stk1.pop();//弹出左括号
+                    }
+                }
+            }
+        }
+    }
+    while(!stk1.empty())//弹出剩余运算符
+    {
+        //printf("%c",stk1.top());
+        int a=stk2.top();
+        stk2.pop();
+        int b=stk2.top();
+        stk2.pop();
+        printf("%d%c%d\n",b,stk1.top(),a);
+        if(stk1.top()=='+')stk2.push(a+b);
+        else if(stk1.top()=='-')stk2.push(b-a);
+        else if(stk1.top()=='*')stk2.push(b*a);
+        else stk2.push(b/a);
+        stk1.pop();
+    }
+    printf("%d\n",stk2.top());
     return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -617,7 +646,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zzldy4.github.io/posts/5a09b4da.html">https://zzldy4.github.io/posts/5a09b4da.html</a>
+                    <a href="https://zzldy4.github.io/posts/b000.html">https://zzldy4.github.io/posts/b000.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1157,17 +1186,18 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/25ef.html">
+                <a href="/posts/b000.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="01背包">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="表达式求值">
                         
-                        <span class="card-title">01背包</span>
+                        <span class="card-title">表达式求值</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1177,9 +1207,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1188,11 +1218,12 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dp/">
-                        <span class="chip bg-color">dp</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -1206,13 +1237,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/1dd4624d.html">
+                <a href="/posts/a21c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="运算器组成实验">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="赵丽竹">
                         
-                        <span class="card-title">运算器组成实验</span>
+                        <span class="card-title">赵丽竹</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1223,7 +1254,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-23
                             </span>
                         <span class="publish-author">
                             
@@ -1232,14 +1263,6 @@ int main()
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
-                        <span class="chip bg-color">计算机组成原理</span>
-                    </a>
-                    
                 </div>
                 
             </div>
